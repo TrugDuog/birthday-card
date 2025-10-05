@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff8488, #f8c5b7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Pacifico', cursive;
+    overflow: hidden;
+    position: relative;
+}
+
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.gift {
+    width: 250px;
+    max-width: 80vw;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: bounce 1.5s infinite;
+}
+
+.gift:hover {
+    transform: scale(1.08);
+}
+
+.gift-text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 5px #000;
+    animation: glow 1.5s infinite alternate;
+    text-align: center;
+}
+
+.card {
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    color: white;
+    position: absolute;
+    z-index: 10;
+    font-size: 1.5rem;
+    transform-origin: center;
+    animation: expandFromCenter 1.5s ease-out forwards;
+    opacity: 0;
+    width: 90vw;
+    max-width: 600px;
+    height: auto;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+}
+
+.img-gift {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;  /* responsive */
+    height: auto;    /* tự động tỉ lệ */
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    margin-bottom: 16px;
+    font-size: 1.8rem;
+}
+
+#birthdayText {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity:1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+}
+
+@keyframes expandFromCenter {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0; }
+    100% { text-shadow: 0 0 15px #fff, 0 0 25px #ff0; }
+}
+
+@media (max-width: 480px) {
+    .gift-text { font-size: 1rem; }
+    .card { font-size: 1rem; padding: 15px; }
+}
+h1 {
+  animation: neon 1s infinite alternate;
+}
+
+@keyframes neon {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #f0f; color: #ff0; }
+  100% { text-shadow: 0 0 20px #0ff, 0 0 30px #0ff; color: #f0f; }
+}
